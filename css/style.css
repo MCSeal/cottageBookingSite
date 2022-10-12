@@ -1,0 +1,13 @@
+.carousel {
+  width: 38rem;
+}
+
+.carousel-outer {
+  width: 38rem;
+  margin: auto;
+  margin-top: 5rem;
+}
+.map-center {
+  margin: auto;
+  text-align: center;
+}
