@@ -58,7 +58,7 @@ class BookableCell
         return in_array($date, $this->bookedDates());
     }
  
-    private function bookedDates()
+    public function bookedDates()
     {
         return array_map(function ($record) {
             return $record['booking_date'];

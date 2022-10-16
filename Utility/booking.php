@@ -63,6 +63,13 @@ class Booking
             throw new Exception(implode(' ', $statement->errorInfo()));
         }
     }
+    public function getAllBookings()
+    {
+        {
+            $statement = $this->dbh->query('SELECT * FROM ' . $this->bookingsTableName);
+            return $statement;
+        }
+    }
 
 }
 

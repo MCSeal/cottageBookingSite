@@ -1,3 +1,7 @@
+<?php 
+include_once 'includes/session.php'
+
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -17,7 +21,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-    <title>Attendace - <?php echo $title ?></title>
+    <title>Cottage Booking - <?php echo $title ?></title>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -26,12 +30,32 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
+            
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
                 <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="booknow.php">Book Now</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="reviewBookings.php">Review Bookings</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <?php 
+                  if(!isset($_SESSION['userid'])){
+                ?>
+
+                <a class="nav-link" href="login.php">Login(Owner Only) <span class="sr-only"></span></a>
+
+                <?php } else { ?>
+                  <span class="text-light">Welcome, <?php echo $_SESSION['email'] ?></span>
+                  <a class="nav-link" href="logout.php">Logout <span class="sr-only"></span></a>
+
+                <?php } ?>
+                
               </li>
 
             </ul>

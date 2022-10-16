@@ -5,9 +5,10 @@ $title = "Index";
 require_once "includes/header.php";
 
 
-include 'Calendar.php';
-include 'Booking.php';
-include 'BookableCell.php';
+include './Utility/Calendar.php';
+include './Utility/Booking.php';
+include './Utility/BookableCell.php';
+
 
 $booking = new Booking(
     'bookings',
