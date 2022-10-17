@@ -3,7 +3,7 @@
 <?php
 $title = "Index";
 require_once "includes/header.php";
-
+require_once 'includes/auth_check_bookings.php';
 
 include './Utility/Calendar.php';
 include './Utility/Booking.php';
@@ -17,7 +17,15 @@ $booking = new Booking(
     ''
 );
 ?>
-<h1 class="text-center">Book now!</h1>;
+
+
+
+<div class="text-center">
+
+    <h1 >Book now</h1>
+    <p >Please put your information before booking </p>
+</div>
+
 <?php
 $bookableCell = new BookableCell($booking);
  

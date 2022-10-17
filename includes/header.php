@@ -38,9 +38,17 @@ include_once 'includes/session.php'
               <li class="nav-item">
                 <a class="nav-link" href="booknow.php">Book Now</a>
               </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="contactDetails.php">Contact Details</a>
+              </li>
+              <?php 
+                  if(isset($_SESSION['userid'])){
+                ?>
               <li class="nav-item">
                 <a class="nav-link" href="reviewBookings.php">Review Bookings</a>
               </li>
+              <?php } ?>
             </ul>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">

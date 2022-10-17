@@ -22,8 +22,7 @@ $results = $booking->getAllBookings();
     <table class="table">
         <tr>
             <th>Booking Date</th>
-            <th>First Name</th>
-            <th>Last Name</th>
+            <th>Name</th>
             <th>Email</th>
             <th>Number</th>
 

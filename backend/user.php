@@ -9,7 +9,35 @@ class user
         $this->db = $conn;
     }
 
-    public function insertUser($email, $password, $number)
+    public function insertAdmin($email, $password, $number)
+    {
+        try {
+            $result = $this->getUserByEmail($email);
+            //num refers to other function get email num
+            if ($result["num"] > 0) {
+                return false;
+            } else {
+                $new_password = md5($password.$email);
+                // sql insert statement into db
+                $sql =
+                    "INSERT INTO users (email,password,number) VALUES (:email, :password, :number)";
+                //pdo statement will be passed to this, and will be executed... stmt and this will reference this.db which is assigned from the pdo
+                //prepare takes the sql and prepares it for execution
+
+                $stmt = $this->db->prepare($sql);
+                //this binds the prameters to the statement, a type of sql injection prevention
+                $stmt->bindParam(":email", $email);
+                $stmt->bindParam(":password", $new_password);
+                $stmt->bindParam(":number", $number);
+                $stmt->execute();
+                return true;
+            }
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+    public function insertUser($name, $email, $number)
     {
         try {
             $result = $this->getUserByEmail($email);
