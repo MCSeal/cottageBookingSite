@@ -14,6 +14,8 @@ try {
     throw new PDOException($e->getMessage(), (int) $e->getCode());
 }
 require_once "user.php";
+require_once "crud.php";
+$crud = new crud($pdo);
 $user = new user($pdo);
 
 

@@ -25,6 +25,7 @@ $results = $booking->getAllBookings();
             <th>Name</th>
             <th>Email</th>
             <th>Number</th>
+            <th>Accept Booking?</th>
 
     
         </tr>
