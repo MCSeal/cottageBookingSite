@@ -13,7 +13,7 @@ if (isset($_POST["submit"])) {
 
 
     $isSuccess = $crud->insert($name, $email, $number);
-
+    $result = $user->getBookingUser($name, $email, $number);
 
     if ($isSuccess) {
    

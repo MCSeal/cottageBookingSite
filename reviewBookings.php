@@ -17,7 +17,12 @@ $booking = new Booking(
 $results = $booking->getAllBookings();
 ?>
 
+    <p class="text-center">Of course this would only be viewable to the owner/admin. 
+        I have left this able to be accessed if you have submitted contact details,
+        only for demonstration purposes.
 
+
+    </p>
 
     <table class="table">
         <tr>

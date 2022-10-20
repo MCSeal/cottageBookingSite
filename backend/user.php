@@ -82,13 +82,15 @@ class user
             return false;
         }
     }
-    public function getUserByEmail($email)
+    public function getBookingUser($name, $email, $number)
     {
         try {
             $sql =
-                "select count(*) as num from users where email = :email";
+                "select * from users where name = :name AND email = :email AND number = :number";
             $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(":name", $name);
             $stmt->bindParam(":email", $email);
+            $stmt->bindParam(":number", $number);
             $stmt->execute();
             // fetch is needed for a single get request
             $result = $stmt->fetch();

@@ -46,7 +46,7 @@ include_once 'includes/session.php'
                   if(isset($_SESSION['userid'])){
                 ?>
               <li class="nav-item">
-                <a class="nav-link" href="reviewBookings.php">Review Bookings</a>
+                <a class="nav-link" href="reviewBookings.php">Review Bookings (For demonstration)</a>
               </li>
               <?php } ?>
             </ul>
@@ -59,7 +59,7 @@ include_once 'includes/session.php'
                 <a class="nav-link" href="login.php">Login(Owner Only) <span class="sr-only"></span></a>
 
                 <?php } else { ?>
-                  <span class="text-light">Welcome, <?php echo $_SESSION['email'] ?></span>
+                  <span class="text-light">Welcome, <?php echo $_SESSION['name'] ?></span>
                   <a class="nav-link" href="logout.php">Logout <span class="sr-only"></span></a>
 
                 <?php } ?>
