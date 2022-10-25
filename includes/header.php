@@ -56,7 +56,7 @@ include_once 'includes/session.php'
                   if(!isset($_SESSION['userid'])){
                 ?>
 
-                <a class="nav-link" href="login.php">Login(Owner Only) <span class="sr-only"></span></a>
+                <a class="nav-link" href="login.php">Login (Owner Only) <span class="sr-only"></span></a>
 
                 <?php } else { ?>
                   <span class="text-light">Welcome, <?php echo $_SESSION['name'] ?></span>
