@@ -50,7 +50,7 @@ class BookableCell
  
     private function bookedCell($date)
     {
-        return '<div class="booked">' . $this->deleteForm($this->bookingId($date)) . '</div>';
+        return '<div class="booked">' . $this->unavaiable($this->bookingId($date)) . '</div>';
     }
  
     private function isDateBooked($date)
@@ -97,13 +97,20 @@ class BookableCell
             '</form>';
     }
  
+    private function unavaiable($id)
+    {
+        return
+            '<form onsubmit="alert(\'Sorry date unavaiable\');" method="post" action="' . $this->currentURL . '">' .
+            '<input class="submit" type="submit" value="Unavail" />' .
+            '</form>';
+    }
     private function deleteForm($id)
     {
         return
             '<form onsubmit="return confirm(\'Are you sure to cancel?\');" method="post" action="' . $this->currentURL . '">' .
             '<input type="hidden" name="delete" />' .
             '<input type="hidden" name="id" value="' . $id . '" />' .
-            '<input class="submit" type="submit" value="Delete" />' .
+            '<input class="submit" type="submit" value="Unavail" />' .
             '</form>';
     }
 }

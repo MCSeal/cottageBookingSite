@@ -14,7 +14,7 @@ $booking = new Booking(
     ''
 );
 
-$results = $booking->getAllBookings();
+$results = $booking->getAllBookingsWithUser();
 ?>
 
     <p class="text-center">Of course this would only be viewable to the owner/admin. 
@@ -43,15 +43,14 @@ $results = $booking->getAllBookings();
             <td><?php echo $r['booking_date'] ?></td>
 
 
-            <!-- <td><?php echo $r['firstname'] ?></td>
-            <td value=""><?php echo $r['lastname'] ?></td>
-            <td><?php echo $r['specialty'] ?></td>
-            <td><a href="view.php?id=<?php echo $r['attendee_id']?>" class="btn btn-primary">View</a>
-                <a href="edit.php?id=<?php echo $r['attendee_id']?>" class="btn btn-warning">Edit</a>
-
+             <td ><?php echo $r['name'] ?></td>
+             
+            <td ><?php echo $r['email'] ?></td>
+            <td><?php echo $r['number'] ?></td>
+            <td><a href="view.php?id=<?php echo $r['attendee_id']?>" class="btn btn-success">Accept</a>
                 <a onclick="return confirm('are you sure you want to delete this entry?');" 
                 href="delete.php?id=<?php echo $r['attendee_id']?>" class="btn btn-danger">Delete</a>
-            </td> -->
+            </td>
             </tr>
         
         
@@ -70,3 +69,13 @@ $results = $booking->getAllBookings();
 <?php
     require_once 'includes/footer.php';
 ?>
+<!-- 
+<div class="card" style="width: 18rem;">
+
+<div class="card-body">
+      <h5 class="card-title"><?php echo $_POST["name"]; ?></h5>
+      <p class="card-text">number: <?php echo $_POST["number"]; ?></p>
+      <p class="card-text">Email: <?php echo $_POST["email"]; ?></p>
+  </div>
+</div>
+ -->

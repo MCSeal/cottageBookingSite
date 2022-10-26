@@ -34,10 +34,8 @@ if (isset($_POST["submit"])) {
             <h5 class="card-title"><?php echo $_POST["name"]; ?></h5>
             <p class="card-text">number: <?php echo $_POST["number"]; ?></p>
             <p class="card-text">Email: <?php echo $_POST["email"]; ?></p>
-
-
-  </div>
-</div>
+        </div>
+    </div>
 
 
 

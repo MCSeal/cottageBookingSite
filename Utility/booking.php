@@ -71,6 +71,14 @@ class Booking
             return $statement;
         }
     }
+    public function getAllBookingsWithUser()
+    {
+        {
+            $statement = $this->dbh->query("SELECT * FROM `bookings` a inner join users s on a.user_id = s.id");
+            return $statement;
+        }
+    }
+    
 
 }
 
