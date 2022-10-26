@@ -32,14 +32,14 @@ class BookableCell
         }
     }
  
-    public function routeActions()
+    public function routeActions($userId)
     {
         if (isset($_POST['delete'])) {
             $this->deleteBooking($_POST['id']);
         }
  
         if (isset($_POST['add'])) {
-            $this->addBooking($_POST['date']);
+            $this->addBooking($_POST['date'], $userId);
         }
     }
  
@@ -81,10 +81,10 @@ class BookableCell
         $this->booking->delete($id);
     }
  
-    private function addBooking($date)
+    private function addBooking($date, $userId)
     {
         $date = new DateTimeImmutable($date);
-        $this->booking->add($date);
+        $this->booking->add($date, $userId);
     }
  
     private function bookingForm($date)

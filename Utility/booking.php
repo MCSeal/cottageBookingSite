@@ -34,10 +34,10 @@ class Booking
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function add(DateTimeImmutable $bookingDate)
+    public function add(DateTimeImmutable $bookingDate, $userId)
     {
         $statement = $this->dbh->prepare(
-            'INSERT INTO ' . $this->bookingsTableName . ' (booking_date) VALUES (:bookingDate)'
+            'INSERT INTO ' . $this->bookingsTableName . ' (booking_date, user_id) VALUES (:bookingDate, :userId)'
         );
     
         if (false === $statement) {
@@ -46,6 +46,7 @@ class Booking
     
         if (false === $statement->execute([
                 ':bookingDate' => $bookingDate->format('Y-m-d'),
+                'userId' => $userId
             ])) {
             throw new Exception(implode(' ', $statement->errorInfo()));
         }

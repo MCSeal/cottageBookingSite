@@ -10,6 +10,7 @@ include './Utility/Booking.php';
 include './Utility/BookableCell.php';
 
 
+
 $booking = new Booking(
     'bookings',
     '127.0.0.1',
@@ -27,13 +28,15 @@ $booking = new Booking(
 </div>
 
 <?php
+
+$userId = $_SESSION['userid'];
 $bookableCell = new BookableCell($booking);
  
 $calendar = new Calendar();
  
 $calendar->attachObserver('showCell', $bookableCell);
  
-$bookableCell->routeActions();
+$bookableCell->routeActions($userId);
  
 echo $calendar->show();
 
