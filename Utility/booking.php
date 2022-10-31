@@ -8,7 +8,7 @@ class Booking
     private $bookingsTableName = 'bookings';
  
     /**
-     * Booking constructor.
+     *  Booking constructor.
      * @param string $database
      * @param string $host
      * @param string $databaseUsername
