@@ -64,6 +64,18 @@ class Booking
             throw new Exception(implode(' ', $statement->errorInfo()));
         }
     }
+    public function deleteByDate($booking_date)
+    {
+        $statement = $this->dbh->prepare(
+            'DELETE from ' . $this->bookingsTableName . ' WHERE booking_date = :booking_date'
+        );
+        if (false === $statement) {
+            throw new Exception('Invalid prepare statement');
+        }
+        if (false === $statement->execute([':booking_date' => $booking_date])) {
+            throw new Exception(implode(' ', $statement->errorInfo()));
+        }
+    }
     public function getAllBookings()
     {
         {
@@ -74,7 +86,7 @@ class Booking
     public function getAllBookingsWithUser()
     {
         {
-            $statement = $this->dbh->query("SELECT * FROM `bookings` a inner join users s on a.user_id = s.id");
+            $statement = $this->dbh->query("SELECT * FROM `bookings` a inner join users s on a.user_id = s.user_id");
             return $statement;
         }
     }

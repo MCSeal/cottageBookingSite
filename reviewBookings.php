@@ -48,8 +48,10 @@ $results = $booking->getAllBookingsWithUser();
             <td ><?php echo $r['email'] ?></td>
             <td><?php echo $r['number'] ?></td>
             <td><a href="view.php?id=<?php echo $r['attendee_id']?>" class="btn btn-success">Accept</a>
-                <a onclick="return confirm('are you sure you want to delete this entry?');" 
-                href="delete.php?id=<?php echo $r['attendee_id']?>" class="btn btn-danger">Delete</a>
+                
+            
+            <a onclick="return confirm('are you sure you want to delete this entry?? <?php echo $r['id']?>  ');" 
+                href="delete.php?booking_date=<?php echo $r['booking_date']?>" class="btn btn-danger">Delete</a>
             </td>
             </tr>
         
