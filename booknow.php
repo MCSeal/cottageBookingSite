@@ -1,5 +1,3 @@
-
-
 <?php
 $title = "Index";
 require_once "includes/header.php";
@@ -23,8 +21,8 @@ $booking = new Booking(
 
 <div class="text-center">
 
-    <h1 >Book now</h1>
-    <p >Please put your information before booking </p>
+    <h1>Book now</h1>
+    <p>Please put your information before booking </p>
 </div>
 
 <?php
@@ -42,10 +40,10 @@ echo $calendar->show();
 
 ?>
 
-    
-   
 
-    
+
+
+
 
 <?php require_once "includes/footer.php";
 ?>

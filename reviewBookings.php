@@ -17,49 +17,49 @@ $booking = new Booking(
 $results = $booking->getAllBookingsWithUser();
 ?>
 
-    <p class="text-center">Of course this would only be viewable to the owner/admin. 
-        I have left this able to be accessed if you have submitted contact details,
-        only for demonstration purposes.
+<p class="text-center">Of course this would only be viewable to the owner/admin.
+    I have left this able to be accessed if you have submitted contact details,
+    only for demonstration purposes.
 
 
-    </p>
+</p>
 
-    <table class="table">
-        <tr>
-            <th>Booking Date</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Number</th>
-            <th>Accept Booking?</th>
+<table class="table">
+    <tr>
+        <th>Booking Date</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Number</th>
+        <th>Accept Booking?</th>
 
-    
-        </tr>
-        
-        <?php
+
+    </tr>
+
+    <?php
         while ($r = $results->fetch(PDO::FETCH_ASSOC)) { ?>
-        
-            
-            <tr>
-            <td><?php echo $r['booking_date'] ?></td>
 
 
-             <td ><?php echo $r['name'] ?></td>
-             
-            <td ><?php echo $r['email'] ?></td>
-            <td><?php echo $r['number'] ?></td>
-            <td><a href="view.php?id=<?php echo $r['attendee_id']?>" class="btn btn-success">Accept</a>
-                
-            
-            <a onclick="return confirm('are you sure you want to delete this entry?? <?php echo $r['id']?>  ');" 
+    <tr>
+        <td><?php echo $r['booking_date'] ?></td>
+
+
+        <td><?php echo $r['name'] ?></td>
+
+        <td><?php echo $r['email'] ?></td>
+        <td><?php echo $r['number'] ?></td>
+        <td><a href="view.php?id=<?php echo $r['attendee_id']?>" class="btn btn-success">Accept</a>
+
+
+            <a onclick="return confirm('are you sure you want to delete this entry?? <?php echo $r['id']?>  ');"
                 href="delete.php?id=<?php echo $r['id']?>" class="btn btn-danger">Delete</a>
-            </td>
-            </tr>
-        
-        
+        </td>
+    </tr>
 
-        <?php } ?>
 
-    </table>
+
+    <?php } ?>
+
+</table>
 
 
 
