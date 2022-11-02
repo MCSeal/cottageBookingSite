@@ -51,7 +51,7 @@ $results = $booking->getAllBookingsWithUser();
                 
             
             <a onclick="return confirm('are you sure you want to delete this entry?? <?php echo $r['id']?>  ');" 
-                href="delete.php?booking_date=<?php echo $r['booking_date']?>" class="btn btn-danger">Delete</a>
+                href="delete.php?id=<?php echo $r['id']?>" class="btn btn-danger">Delete</a>
             </td>
             </tr>
         

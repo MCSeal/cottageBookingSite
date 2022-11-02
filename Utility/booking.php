@@ -63,6 +63,7 @@ class Booking
         if (false === $statement->execute([':id' => $id])) {
             throw new Exception(implode(' ', $statement->errorInfo()));
         }
+        return true;
     }
     public function deleteByDate($booking_date)
     {

@@ -19,7 +19,7 @@ if (isset($_POST["submit"])) {
    
         include "includes/successmessage.php";
         $_SESSION['name'] = $name;
-        $_SESSION['userid'] = $result['id'];
+        $_SESSION['userid'] = $result['user_id'];
     } else {
         include "includes/error.php";
     }

@@ -16,15 +16,15 @@
         ''
     );
     
-    $results = $booking->deleteByDate($booking_date);
+    $id = $_GET['id'];
 
-    if(!$_GET[$booking_date]){
+    if(!$id){
         echo "<h1>Please check details and try again</h1>";
-        header("Location: reviewBookings.php");
+        header("Location: index.php");
 
     } else {
-        $booking_date = $_GET['booking_date'];
-        $result = $booking->deleteByDate($booking_date);
+        
+        $result = $booking->delete($id);
     }
         if($result){
             header("Location: reviewBookings.php");
