@@ -61,8 +61,18 @@ $results = $booking->getAllBookingsWithUser();
 
 </table>
 
+<table class="table">
+    <h2>Accepted Bookings</h2>
+    <tr>
+        <th>Booking Date</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Number</th>
 
 
+
+    </tr>
+</table>
 
 <br>
 <br>
