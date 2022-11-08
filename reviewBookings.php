@@ -15,6 +15,7 @@ $booking = new Booking(
 );
 
 $results = $booking->getAllBookingsWithUser();
+$resultsAcceptedBookings = $booking->getAllAcceptedBookings();
 ?>
 
 <p class="text-center">Of course this would only be viewable to the owner/admin.
@@ -47,7 +48,7 @@ $results = $booking->getAllBookingsWithUser();
 
         <td><?php echo $r['email'] ?></td>
         <td><?php echo $r['number'] ?></td>
-        <td><a href="view.php?id=<?php echo $r['attendee_id']?>" class="btn btn-success">Accept</a>
+        <td><a href="acceptBooking.php?id=<?php echo $r['id']?>" class="btn btn-success">Accept</a>
 
 
             <a onclick="return confirm('are you sure you want to delete this entry?? <?php echo $r['id']?>  ');"
@@ -72,6 +73,31 @@ $results = $booking->getAllBookingsWithUser();
 
 
     </tr>
+
+
+    <?php
+        while ($rab = $resultsAcceptedBookings->fetch(PDO::FETCH_ASSOC)) { ?>
+
+
+    <tr>
+        <td><?php echo $rab['booking_date'] ?></td>
+
+
+        <td><?php echo $rab['name'] ?></td>
+
+        <td><?php echo $rab['email'] ?></td>
+        <td><?php echo $rab['number'] ?></td>
+        <td>
+
+
+            <a onclick="return confirm('are you sure you want to delete this entry?? <?php echo $rab['id']?>  ');"
+                href="delete.php?id=<?php echo $rab['id']?>" class="btn btn-danger">Delete</a>
+        </td>
+    </tr>
+
+
+
+    <?php } ?>
 </table>
 
 <br>

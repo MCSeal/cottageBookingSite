@@ -65,17 +65,18 @@ class Booking
         }
         return true;
     }
-    public function deleteByDate($booking_date)
+    public function acceptBooking($id)
     {
         $statement = $this->dbh->prepare(
-            'DELETE from ' . $this->bookingsTableName . ' WHERE booking_date = :booking_date'
+            "UPDATE `bookings` SET `accepted` = 1 WHERE  id = :id"
         );
         if (false === $statement) {
             throw new Exception('Invalid prepare statement');
         }
-        if (false === $statement->execute([':booking_date' => $booking_date])) {
+        if (false === $statement->execute([':id' => $id])) {
             throw new Exception(implode(' ', $statement->errorInfo()));
         }
+        return true;
     }
     public function getAllBookings()
     {
@@ -87,17 +88,18 @@ class Booking
     public function getAllBookingsWithUser()
     {
         {
-            $statement = $this->dbh->query("SELECT * FROM `bookings` a inner join users s on a.user_id = s.user_id");
+            $statement = $this->dbh->query("SELECT * FROM `bookings` a inner join users s on a.user_id = s.user_id where accepted IS NULL");
             return $statement;
         }
     }
-    
+    public function getAllAcceptedBookings()
+    {
+        {
+            $statement = $this->dbh->query("SELECT * FROM `bookings` a inner join users s on a.user_id = s.user_id where accepted = 1");
+            return $statement;
+        }
+    }
 
 }
 
 ?>
-
-
-
-
-
